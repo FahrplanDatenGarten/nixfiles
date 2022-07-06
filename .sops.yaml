@@ -1,0 +1,26 @@
+keys:
+  - &leona EB5CEED62922C6050F9FC85BD5B08ADFC75E3605
+  - &web age1rp4g9mm7fsvfrknqsfuqstsvt64jqatglavmtq7732zjycuesa7qgs8dlu
+creation_rules:
+  - path_regex: secrets/all/[^/]+\.yaml$
+    key_groups:
+      - pgp:
+          - *leona
+        age:
+          - *web
+  # hosts
+  - path_regex: secrets/hosts/web.yaml
+    key_groups:
+      - pgp:
+          - *leona
+        age:
+          - *web
+  # services
+  - path_regex: secrets/services/dns-knot.yaml
+    key_groups:
+      - pgp:
+          - *leona
+        age:
+          - *web
+
+
