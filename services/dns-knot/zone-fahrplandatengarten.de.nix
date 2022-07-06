@@ -1,26 +1,22 @@
-{ dns, config, lib, ... }:
-
-with dns.lib.combinators;
-
-in {
+{ dns, config, lib, ... }: with dns.lib.combinators; {
   zone = {
     TTL = 600;
     SOA = ((ttl 600) {
       nameServer = "ns1.fahrplandatengarten.de.";
       adminEmail = "noc@fahrplandatengarten.de";
-      serial = 2022070402;
+      serial = 2022070601;
       refresh = 300;
       expire = 604800;
       minimum = 300;
     });
 
     NS = [
-      "ns1.fahrplandatengarten.de"
-      "ns2.leona.is"
-      "ns3.leona.is"
+      "ns1.fahrplandatengarten.de."
+      "ns2.leona.is."
+      "ns3.leona.is."
     ];
 
-    MX = "mail.leona.is";
+    MX = [ (mx.mx 10 "mail.leona.is.") ];
 #    TXT = [
 #      helper.mail.spf
 #    ];
@@ -34,13 +30,13 @@ in {
 #    CAA = helper.caa;
 
     A = [ "195.39.247.150" ];
-    AAAA = [ "2a01:4f8:242:155f:1000::b4d" ];
+    AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
 
 
     subdomains = {
-      "web.infra" = "2a01:4f8:242:155f:1000::b4d";
+      "web.infra".AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
 
-      "ns1".AAAA = "2a01:4f8:242:155f:1000::b4d";
+      "ns1".AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
 
       www.CNAME = [ "web.infra.fahrplandatengarten.de." ];
     };
