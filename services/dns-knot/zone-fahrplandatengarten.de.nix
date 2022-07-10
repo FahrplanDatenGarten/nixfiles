@@ -4,7 +4,7 @@
     SOA = ((ttl 600) {
       nameServer = "ns1.fahrplandatengarten.de.";
       adminEmail = "noc@fahrplandatengarten.de";
-      serial = 2022070601;
+      serial = 2022071002;
       refresh = 300;
       expire = 604800;
       minimum = 300;
@@ -29,16 +29,22 @@
 #
 #    CAA = helper.caa;
 
-    A = [ "195.39.247.150" ];
-    AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
+    #A = [ "195.39.247.150" ];
+    #AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
+
+    A = [ "116.203.77.208" ];
+    AAAA = [ "2a01:4f8:c0c:c683::1" ];
 
 
     subdomains = {
       "web.infra".AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
+      "mars.het.nue.de" = host "116.203.77.208" "2a01:4f8:c0c:c683::1";
+      "mars.het.nue.de.vpn".AAAA = [ "fd59:974e:6ee8::1" ];
+      "saturn.int.sig.de.vpn".AAAA = [ "fd59:974e:6ee8:10::1" ];
 
       "ns1".AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
 
-      www.CNAME = [ "web.infra.fahrplandatengarten.de." ];
+      www.CNAME = [ "mars.het.nue.de.fahrplandatengarten.de." ];
     };
   };
 }
