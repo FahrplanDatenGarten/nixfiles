@@ -3,6 +3,7 @@
 {
   imports = [
     ../users/root
+    ../users/n0emis
 #    ./nginx.nix
   ];
   users.mutableUsers = false;
