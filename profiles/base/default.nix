@@ -1,11 +1,20 @@
-{ inputs, options, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
   imports = [
-    ../users/root
-    ../users/n0emis
+    ../../modules
+    inputs.home-manager.nixosModules.home-manager
+    inputs.colmena.nixosModules.deploymentOptions
+    inputs.sops-nix.nixosModules.sops
+    ../../users/root
+    ../../users/n0emis
+    ../../users/leona
 #    ./nginx.nix
   ];
+  deployment.targetHost = lib.mkDefault config.networking.fqdn;
+  deployment.targetPort = lib.mkDefault (lib.head config.services.openssh.ports);
+  deployment.targetUser = null;
+  
   users.mutableUsers = false;
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
@@ -31,11 +40,11 @@
 
   time.timeZone = "Europe/Berlin";
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "hx";
   programs.zsh.enable = true;
 
   networking.useNetworkd = true;
-  fdg.nftables.enable = true;
+  networking.nftables.enable = true;
   networking.useDHCP = false;
   services.resolved.dnssec = "false"; # broken :(
   services.resolved.extraConfig = ''
@@ -52,6 +61,7 @@
     htop
     mtr
     neovim
+    helix
     nmap
     openssl
     ripgrep

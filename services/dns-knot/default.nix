@@ -1,7 +1,7 @@
-{ inputs, dns, config, lib, ... }:
+{ inputs, pkgs, config, lib, ... }:
 let
   dns = inputs.dns;
-  dnsutil = dns.util.${config.nixpkgs.system};
+  dnsutil = dns.util.${pkgs.stdenv.hostPlatform.system};
 in {
   fdg.sops.secrets."services/dns-knot/keys".owner = "knot";
   networking.firewall.allowedTCPPorts = [ 53 ];
@@ -15,18 +15,18 @@ in {
     extraConfig = ''
       server:
         listen: 127.0.0.11@53
-        listen: 2a01:4f8:242:155f:4000::b8b@53
-        listen: fd8f:d15b:9f40:c31:5054:ff:fec0:8539@53
+        listen: 128.140.93.148@53
+        listen: 2a01:4f8:c012:5ab9::1@53
       remote:
         - id: leona_ns2
-          address: 2a0f:4ac0:0:1::d25
+          address: 2001:470:1f0b:1112::1
           key: fdg_leona_secondary
         - id: leona_ns3
           address: 2a03:4000:f:85f::1
           key: fdg_leona_secondary
       acl:
         - id: leona_secondary_transfer
-          address: [2a0f:4ac0:0:1::d25/128, 2a03:4000:f:85f::1/128]
+          address: [2001:470:1f0a:1111::2/64, 2001:470:1f0b:1112::1/128, 2a03:4000:f:85f::1/128]
           key: fdg_leona_secondary
           action: transfer
         - id: internal
