@@ -28,6 +28,10 @@
       url = "github:kirelagin/dns.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fdg-app = {
+      url = "github:FahrplanDatenGarten/fahrplandatengarten/poetry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
@@ -36,6 +40,10 @@
         ./nodes.nix
       ];
       specialArgs = { inherit inputs; };
+    };
+    overlays = {
+      colmena = inputs.colmena.overlay;
+      fdg = inputs.fdg-app.overlay;
     };
     inherit (inputs.self.suxin.config) nixosConfigurations colmenaHive;
   } // inputs.flake-utils.lib.eachDefaultSystem(system:

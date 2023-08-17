@@ -10,11 +10,11 @@
       },
       "locked": {
         "host": "cyberchaos.dev",
-        "lastModified": 1688290393,
-        "narHash": "sha256-ODGG7RRmGiuz1mnjfjrRpZE3Mfh9PIi52thfCgV2qms=",
+        "lastModified": 1691418703,
+        "narHash": "sha256-unxk5GLOJYkIB1hpdyvtr3eIAGDWRBzV+rWqbIpjCxI=",
         "owner": "cyberchaoscreatures",
         "repo": "nixlib",
-        "rev": "35c9506c95bdd829f26a6839996eb10080bdb438",
+        "rev": "b026cd176fcdadf3c80ec07a367ad36157f7d61c",
         "type": "gitlab"
       },
       "original": {
@@ -84,6 +84,28 @@
       "original": {
         "owner": "kirelagin",
         "repo": "dns.nix",
+        "type": "github"
+      }
+    },
+    "fdg-app": {
+      "inputs": {
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1692220774,
+        "narHash": "sha256-esfkjGynSobyfz9JbtxcYKi+ZEJHhlOBoPwtfOSMcnc=",
+        "owner": "FahrplanDatenGarten",
+        "repo": "fahrplandatengarten",
+        "rev": "cf4a5f91b6f8c7e2cfa8f4493f5f471ccbfd0941",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FahrplanDatenGarten",
+        "ref": "poetry",
+        "repo": "fahrplandatengarten",
         "type": "github"
       }
     },
@@ -169,6 +191,24 @@
         "type": "github"
       }
     },
+    "flake-utils_5": {
+      "inputs": {
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -176,11 +216,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1689414552,
-        "narHash": "sha256-FS47yV7VbI2EZ5nDHHuFCH1KFrA8Zh8bnEUUi77VUCU=",
+        "lastModified": 1692222899,
+        "narHash": "sha256-dHrv+lMUKFXLnzc/yYhEpNr34JYG8gwD4eH6qcrScFI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "559856748982588a9eda6bfb668450ebcf006ccd",
+        "rev": "2471d965a3522025157a790fc49c3567fd56e26e",
         "type": "github"
       },
       "original": {
@@ -193,11 +233,11 @@
     "leona-nixfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1689353913,
-        "narHash": "sha256-/pgBzxsAqpr94XHgL8OsvNTJIIM+MQPQP9Sgza4P+10=",
+        "lastModified": 1692221338,
+        "narHash": "sha256-3XKKKuuqk8N+XF+OCgkzss08UIL9k5VKtX7PFofYrfw=",
         "ref": "refs/heads/main",
-        "rev": "3fae0cfd4679d4afe1726461f5dc4d22734488c0",
-        "revCount": 286,
+        "rev": "aa0362f57c347532bf02b96a106582f305388add",
+        "revCount": 295,
         "type": "git",
         "url": "https://cyberchaos.dev/leona/nixfiles"
       },
@@ -208,11 +248,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1689385278,
-        "narHash": "sha256-9pVd6u21P+b2BZMdzYJmsjcF5VaFrj+4muWoFOrjfhk=",
+        "lastModified": 1692231980,
+        "narHash": "sha256-tvkB3PIrkRaaP0nVFsCKYrr2Ij3VLLHI7k5mjlDSnB4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5829ef37cc07aa3c7da58654a7f7f2e8bc2012ea",
+        "rev": "5414083f0ba82e98e49976311e1fddf7d7a2074d",
         "type": "github"
       },
       "original": {
@@ -224,11 +264,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1689398528,
-        "narHash": "sha256-qVn/doWn20axR+KvmAAGexv0A5RVzcBbd5HfNMAMeVI=",
+        "lastModified": 1691874659,
+        "narHash": "sha256-qgmixg0c/CRNT2p9Ad35kaC7NzYVZ6GRooErYI7OGJM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3dc2bc15956db2ff2316af45eefd45803fc1372b",
+        "rev": "efeed708ece1a9f4ae0506ae4a4d7da264a74102",
         "type": "github"
       },
       "original": {
@@ -243,7 +283,8 @@
         "ccc-nixlib": "ccc-nixlib",
         "colmena": "colmena",
         "dns": "dns",
-        "flake-utils": "flake-utils_4",
+        "fdg-app": "fdg-app",
+        "flake-utils": "flake-utils_5",
         "home-manager": "home-manager",
         "leona-nixfiles": "leona-nixfiles",
         "nixpkgs": "nixpkgs",
@@ -258,11 +299,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1689405598,
-        "narHash": "sha256-80fuO3FiXgJmUDQgB7sc2lq8Qe/oSkqDNwx9N/fCtBs=",
+        "lastModified": 1692127428,
+        "narHash": "sha256-+e9dD67mpGLBhhqdv7A7i1g/r2AT/PmqthWaYHyVZR4=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "cfe47aff8660fd760b1db89613a3205c2c4ba7b6",
+        "rev": "f81e73cf9a4ef4b949b9225be3daa1e586c096da",
         "type": "github"
       },
       "original": {
@@ -303,6 +344,21 @@
       }
     },
     "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

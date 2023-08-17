@@ -4,7 +4,7 @@
     SOA = ((ttl 600) {
       nameServer = "ns1.fahrplandatengarten.de.";
       adminEmail = "noc@fahrplandatengarten.de";
-      serial = 2022071002;
+      serial = 2022081701;
       refresh = 300;
       expire = 604800;
       minimum = 300;
@@ -17,34 +17,36 @@
     ];
 
     MX = [ (mx.mx 10 "mail.leona.is.") ];
-#    TXT = [
-#      helper.mail.spf
-#    ];
-#    DKIM = [{
-#      selector = "mail";
-#      p = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxAdCbH2V1TQgnscRit9ogxbPD3tibtgFzdW4EshD737hi7yV3g0njk/8P9UcNx0mqVwjDcBxENL1bd5MywHrRfBrkbaez2wEmZbcGzE5ljaEHk0QzwAvG+Yws4q32EHmLBmwRaT4+wSvXrp6F/FqJ4GDyWigaoEvrc+6tKgc7oAgi4k5VItv/AUJXXHsrWCd81CpcPMzEAbL460ISUmD0xRsIScvEsDCzRPAXi0smkaOxFt5oNQbTZOu22WgkyGuz7y0g/0dX7s/8ZD4J1LiAHJswnF3hq7jIWWAoRmAtKjyEFufghRfAeiZoi+gr1e1MzPKxJ4jJ+l2nA4rNkE+XQIDAQAB";
-#    }];
-#
-#    DMARC = helper.mail.dmarc;
-#
-#    CAA = helper.caa;
+    TXT = [
+      (with dns.lib.combinators.spf; soft [
+        "a"
+        "mx"
+      ]) 
+    ];
 
-    #A = [ "195.39.247.150" ];
-    #AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
+    DMARC = [{
+      p = "quarantine";
+      sp = "quarantine";
+      rua = "mailto:noc@fahrplandatengarten.de";
+    }];
+
+    CAA = letsEncrypt "noc@fahrplandatengarten.de";
 
     A = [ "116.203.77.208" ];
     AAAA = [ "2a01:4f8:c0c:c683::1" ];
 
 
     subdomains = {
-      "web.infra".AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
+      "martian.infra" = host "128.140.93.148" "2a01:4f8:c012:5ab9::1";
       "mars.het.nue.de" = host "116.203.77.208" "2a01:4f8:c0c:c683::1";
       "mars.het.nue.de.vpn".AAAA = [ "fd59:974e:6ee8::1" ];
-      "saturn.int.sig.de.vpn".AAAA = [ "fd59:974e:6ee8:10::1" ];
+      "jupiter.int.goe.de.vpn".AAAA = [ "fd59:974e:6ee8:10::1:1" ];
+      "merkur.vpn".AAAA = [ "fd59:974e:6ee8:10::2:1" ];
 
-      "ns1".AAAA = [ "2a01:4f8:242:155f:4000::b8b" ];
+      "ns1" = host "128.140.93.148" "2a01:4f8:242:155f:4000::b8b";
 
       www.CNAME = [ "mars.het.nue.de.fahrplandatengarten.de." ];
+      repo.CNAME = [ "mars.het.nue.de.fahrplandatengarten.de." ];
     };
   };
 }
