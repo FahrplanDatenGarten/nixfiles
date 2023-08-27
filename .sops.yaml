@@ -19,5 +19,12 @@ creation_rules:
           - *ember
         age:
           - *martian
+  - path_regex: secrets/services/fdg-app.yaml
+    key_groups:
+      - pgp:
+          - *leona
+          - *ember
+        age:
+          - *martian
 
 

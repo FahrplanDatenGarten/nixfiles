@@ -9,8 +9,9 @@
     ../../users/root
     ../../users/n0emis
     ../../users/leona
-#    ./nginx.nix
+    ./nginx.nix
   ];
+  nixpkgs.overlays = lib.attrValues inputs.self.overlays;
   deployment.targetHost = lib.mkDefault config.networking.fqdn;
   deployment.targetPort = lib.mkDefault (lib.head config.services.openssh.ports);
   deployment.targetUser = null;
@@ -54,6 +55,7 @@
 
   environment.systemPackages = with pkgs; [
     bat
+    bottom
     bind.dnsutils # for dig
     file
     exa
@@ -68,5 +70,6 @@
     rsync
     tmux
     wget
+    wireguard-tools
   ];
 }

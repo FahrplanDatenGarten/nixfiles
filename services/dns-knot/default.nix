@@ -2,6 +2,7 @@
 let
   dns = inputs.dns;
   dnsutil = dns.util.${pkgs.stdenv.hostPlatform.system};
+  hosthelper = import ../../hosts/helper.nix { inherit lib config; };
 in {
   fdg.sops.secrets."services/dns-knot/keys".owner = "knot";
   networking.firewall.allowedTCPPorts = [ 53 ];
@@ -58,7 +59,7 @@ in {
           journal-content: changes
       zone:
         - domain: fahrplandatengarten.de
-          file: "${dnsutil.writeZone "fahrplandatengarten.de" (import ./zone-fahrplandatengarten.de.nix { inherit lib dns config; }).zone}"
+          file: "${dnsutil.writeZone "fahrplandatengarten.de" (import ./zone-fahrplandatengarten.de.nix { inherit hosthelper lib dns config; }).zone}"
           template: signedprimary
     '';
   };

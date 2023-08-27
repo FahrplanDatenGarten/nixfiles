@@ -1,11 +1,11 @@
-{ dns, config, lib, ... }: with dns.lib.combinators; {
+{ hosthelper, dns, config, lib, ... }: with dns.lib.combinators; {
   zone = {
-    TTL = 600;
-    SOA = ((ttl 600) {
+    TTL = 3600;
+    SOA = ((ttl 3600) {
       nameServer = "ns1.fahrplandatengarten.de.";
       adminEmail = "noc@fahrplandatengarten.de";
-      serial = 2022081701;
-      refresh = 300;
+      serial = 2308271305; # legacy reasons, format: YYMMDDHHMM
+      refresh = 3600;
       expire = 604800;
       minimum = 300;
     });
@@ -43,10 +43,10 @@
       "jupiter.int.goe.de.vpn".AAAA = [ "fd59:974e:6ee8:10::1:1" ];
       "merkur.vpn".AAAA = [ "fd59:974e:6ee8:10::2:1" ];
 
-      "ns1" = host "128.140.93.148" "2a01:4f8:242:155f:4000::b8b";
+      "ns1" = host "128.140.93.148" "2a01:4f8:c012:5ab9::1";
 
       www.CNAME = [ "mars.het.nue.de.fahrplandatengarten.de." ];
       repo.CNAME = [ "mars.het.nue.de.fahrplandatengarten.de." ];
-    };
+    } // hosthelper.services.dns-int.g_dns_records;
   };
 }

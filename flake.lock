@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1692220774,
-        "narHash": "sha256-esfkjGynSobyfz9JbtxcYKi+ZEJHhlOBoPwtfOSMcnc=",
+        "lastModified": 1693138160,
+        "narHash": "sha256-kHS8iDKn5H/cSOIPOb/LU4n1xZrT/3WcGijPYW+N28Y=",
         "owner": "FahrplanDatenGarten",
         "repo": "fahrplandatengarten",
-        "rev": "cf4a5f91b6f8c7e2cfa8f4493f5f471ccbfd0941",
+        "rev": "2a58a884e39db594797a7554f2b8dddd0a3e979c",
         "type": "github"
       },
       "original": {

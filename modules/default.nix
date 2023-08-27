@@ -1,5 +1,6 @@
 {
   imports = [
     ./sops
+    ./fdg-app
   ];
 }
