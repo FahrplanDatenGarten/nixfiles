@@ -9,7 +9,6 @@ in {
   networking.firewall.allowedUDPPorts = [ 53 ];
   services.knot = {
     enable = true;
-#        listen: 195.39.247.146@53
     keyFiles = [
       config.sops.secrets."services/dns-knot/keys".path
     ];
@@ -23,11 +22,11 @@ in {
           address: 2001:470:1f0b:1112::1
           key: fdg_leona_secondary
         - id: leona_ns3
-          address: 2a03:4000:f:85f::1
+          address: 2a01:4f8:c010:1098::1
           key: fdg_leona_secondary
       acl:
         - id: leona_secondary_transfer
-          address: [2001:470:1f0a:1111::2/64, 2001:470:1f0b:1112::1/128, 2a03:4000:f:85f::1/128]
+          address: [2001:470:1f0a:1111::2/64, 2001:470:1f0b:1112::1/128, 2a01:4f8:c010:1098::1/128]
           key: fdg_leona_secondary
           action: transfer
         - id: internal

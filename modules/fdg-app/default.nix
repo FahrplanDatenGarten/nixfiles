@@ -126,7 +126,7 @@ in {
             };
             wagenreihungen = mkOption {
               type = types.str;
-              default = "*,*/30";
+              default = "*/4,0";
             };
           };
         };
@@ -201,7 +201,19 @@ in {
         host all all fd59:974e:6ee8::/48 md5
       '';
       settings = {
-        max_connections = 500;
+        max_connections = 1000;
+        shared_buffers = "1536MB";
+        effective_cache_size = "4608MB";
+        maintenance_work_mem = "768MB";
+        checkpoint_completion_target = 0.9;
+        wal_buffers = "16MB";
+        default_statistics_target = 500;
+        random_page_cost = 1.1;
+        effective_io_concurrency = 200;
+        work_mem = "786kB";
+        huge_pages = "off";
+        min_wal_size = "4GB";
+        max_wal_size = "16GB";
       };
     };
 

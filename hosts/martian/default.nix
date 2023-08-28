@@ -12,7 +12,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  deployment.targetHost = "128.140.93.148";
   deployment.buildOnTarget = true;
 
   networking.hostName = "martian";
