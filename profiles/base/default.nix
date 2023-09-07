@@ -6,6 +6,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.colmena.nixosModules.deploymentOptions
     inputs.sops-nix.nixosModules.sops
+    inputs.leona-nixfiles.nixosModules.telegraf
     ../../users/root
     ../../users/n0emis
     ../../users/leona

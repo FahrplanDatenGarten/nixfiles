@@ -12,6 +12,32 @@ rec {
               publicKey = "79NbBslDrdK5fllB4+6wA9mUV7sVQCtAaPsojW0JJ0U=";
               routed = [ "${hosts.martian.meta.intIpv6}/128" ];
               hostname = "martian.infra.fahrplandatengarten.de";
+              extraWireguardPeers = [
+                { # leona, turingmachine
+                  wireguardPeerConfig = {
+                    AllowedIPs = [
+                      "fd59:974e:6ee8:1000::1/64"
+                    ];
+                    PublicKey = "XXhmTtGgJskiU03n0VJtBB57d9deND1CND8Pbq8WLHc=";
+                  };
+                }
+                { # leona, enari
+                  wireguardPeerConfig = {
+                    AllowedIPs = [
+                      "fd59:974e:6ee8:1001::1/64"
+                    ];
+                    PublicKey = "Za6Mq5kTu97ZXfvqQ1zLzxmmNSrtmjD1xSRSzfvH0i0=";
+                  };
+                }
+                { # ember, laptop
+                  wireguardPeerConfig = {
+                    AllowedIPs = [
+                      "fd59:974e:6ee8:1010::1/64"
+                    ];
+                    PublicKey = "qC9iHtHPf8j+py6eTfFwPMjNp4KXLRiRvaeyqb0pVEo=";
+                  };
+                }
+              ];
             };
           };
         };

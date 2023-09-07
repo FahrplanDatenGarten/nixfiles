@@ -126,7 +126,7 @@ in {
             };
             wagenreihungen = mkOption {
               type = types.str;
-              default = "*/4,0";
+              default = "*,*/30";
             };
           };
         };

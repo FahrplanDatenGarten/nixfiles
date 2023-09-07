@@ -14,6 +14,13 @@ in {
 
   deployment.buildOnTarget = true;
 
+  l.telegraf = {
+    enable = true;
+    allowedNet = "fd59:974e:6ee8::/48";
+    host = "[fd59:974e:6ee8::1]";
+    diskioDisks = [ "sda" ];
+  };
+
   networking.hostName = "martian";
   networking.domain = "infra.fahrplandatengarten.de";
 

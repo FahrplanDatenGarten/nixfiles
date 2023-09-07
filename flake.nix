@@ -22,7 +22,8 @@
     };
     leona-nixfiles = {
       url = "git+https://cyberchaos.dev/leona/nixfiles";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-turingmachine.follows = "nixpkgs";
     };
     dns = {
       url = "github:kirelagin/dns.nix";
