@@ -217,12 +217,30 @@ in {
       };
     };
 
-    fdg.sops.secrets."services/fdg-app/redis_password".owner = "redis-fdg";
+    fdg.sops.secrets."services/fdg-app/redis_password" = {
+      owner = "redis-fdg";
+      group = "telegraf";
+      mode = "0440";
+    };
     services.redis.servers."fdg" = {
       enable = true;
       requirePassFile = config.sops.secrets."services/fdg-app/redis_password".path;
       port = 6379;
       bind = "fd59:974e:6ee8::1";
+    };
+
+    l.telegraf.extraInputs = let
+      redis_celery_command = pkgs.writeShellScript "telegraf-redis-celery" ''
+        ${pkgs.redis}/bin/redis-cli -a "$(cat ${config.sops.secrets."services/fdg-app/redis_password".path})" -n 0 -h fd59:974e:6ee8::1 -p 6379 llen celery
+      '';
+    in {
+      exec = [{
+        commands = [
+          redis_celery_command
+        ];
+        data_format = "value";
+        name_suffix = "_redis_celery_length";
+      }];
     };
 
     services.nginx.virtualHosts."${cfg.web.publicHost}" = {
