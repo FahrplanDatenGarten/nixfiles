@@ -201,16 +201,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1693138160,
-        "narHash": "sha256-kHS8iDKn5H/cSOIPOb/LU4n1xZrT/3WcGijPYW+N28Y=",
+        "lastModified": 1694374683,
+        "narHash": "sha256-HoRMnUcJSbuWvquj4lJF2LZuDAT+89Tbx3dDzS4nUYg=",
         "owner": "FahrplanDatenGarten",
         "repo": "fahrplandatengarten",
-        "rev": "2a58a884e39db594797a7554f2b8dddd0a3e979c",
+        "rev": "179a4c98224d0be47756fa1b8c3271537eccfc15",
         "type": "github"
       },
       "original": {
         "owner": "FahrplanDatenGarten",
-        "ref": "poetry",
         "repo": "fahrplandatengarten",
         "type": "github"
       }

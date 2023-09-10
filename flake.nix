@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fdg-app = {
-      url = "github:FahrplanDatenGarten/fahrplandatengarten/poetry";
+      url = "github:FahrplanDatenGarten/fahrplandatengarten";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
