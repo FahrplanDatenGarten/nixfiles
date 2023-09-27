@@ -10,7 +10,7 @@ rec {
             "fdg-int" = {
               ips = [ "${hosts.martian.meta.intIpv6}/128" ];
               publicKey = "79NbBslDrdK5fllB4+6wA9mUV7sVQCtAaPsojW0JJ0U=";
-              routed = [ "${hosts.martian.meta.intIpv6}/128" ];
+              routed = [ "${hosts.martian.meta.intIpv6}/48" ];
               hostname = "martian.infra.fahrplandatengarten.de";
               extraWireguardPeers = [
                 { # leona, turingmachine
@@ -34,7 +34,7 @@ rec {
                     AllowedIPs = [
                       "fd59:974e:6ee8:1010::1/64"
                     ];
-                    PublicKey = "qC9iHtHPf8j+py6eTfFwPMjNp4KXLRiRvaeyqb0pVEo=";
+                    PublicKey = "jX09UX1l0nmc86krm3s5Ag/ytjcMKoG215aN+a6lF2Y=";
                   };
                 }
               ];

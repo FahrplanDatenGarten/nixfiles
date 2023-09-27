@@ -35,6 +35,14 @@ in {
 
     worker = {
       enable = mkEnableOption "FahrplanDatenGarten app worker";
+      concurrency = mkOption {
+        type = types.int;
+        default = 7;
+      };
+      numWorkers = mkOption {
+        type = types.int;
+        default = 4;
+      };
     };
     
     environmentFile = mkOption {

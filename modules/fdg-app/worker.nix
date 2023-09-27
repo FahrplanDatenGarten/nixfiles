@@ -16,7 +16,7 @@ in {
       '';
       serviceConfig = {
         WorkingDirectory = dataDir;
-        ExecStart = "${package.dependencyEnv}/bin/celery -A fahrplandatengarten.fahrplandatengarten worker --loglevel INFO --concurrency=10 -n worker%i@%%h";
+        ExecStart = "${package.dependencyEnv}/bin/celery -A fahrplandatengarten.fahrplandatengarten worker --loglevel INFO --concurrency=${toString cfg.worker.concurrency} -n worker%i@%%h";
         StateDirectory = lib.mkIf (dataDir == "/var/lib/fdg") "fdg";
         User = "fdg";
         Group = "fdg";
@@ -28,12 +28,7 @@ in {
       environment.FDG_CONFIG_FILE = configPath;
     };
     systemd.targets.fdg-worker = {
-      wants = [
-        "fdg-worker@1.service"
-        "fdg-worker@2.service"
-        "fdg-worker@3.service"
-        "fdg-worker@4.service"
-      ];
+      wants = map (n: "fdg-worker@${toString n}.service") (lib.range 1 cfg.worker.numWorkers);
       wantedBy = [ "multi-user.target" ];
     };
   };

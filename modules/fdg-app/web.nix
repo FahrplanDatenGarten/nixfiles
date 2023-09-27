@@ -116,6 +116,7 @@ in {
       }];
     };
 
+    services.nginx.enable = true;
     services.nginx.virtualHosts."${cfg.web.publicHost}" = {
       enableACME = true;
       forceSSL = true;
