@@ -35,7 +35,7 @@
     };
   };
 
-  outputs = inputs: {
+  outputs = inputs@{ self, ... }: {
     suxin = inputs.ccc-nixlib.suxinSystem {
       modules = [
         ./nodes.nix
@@ -47,14 +47,28 @@
       fdg = inputs.fdg-app.overlay;
     };
     inherit (inputs.self.suxin.config) nixosConfigurations colmenaHive;
+    hydraJobs = {
+      packages = { inherit (self.packages) x86_64-linux aarch64-linux; };
+      devShell.x86_64-linux = self.devShell.x86_64-linux;
+      nixosConfigurations = builtins.mapAttrs (name: host: host.config.system.build.toplevel) self.nixosConfigurations;
+    };
   } // inputs.flake-utils.lib.eachDefaultSystem(system:
-    let pkgs = inputs.nixpkgs.legacyPackages.${system}; in
-    {
+    let
+      inherit (inputs) nixpkgs;
+      pkgs = import nixpkgs {
+        overlays = [ self.overlays.fdg ];
+        inherit system;
+      };
+    in {
       devShell = pkgs.mkShell {
         buildInputs = [
           pkgs.sops
           pkgs.colmena
+          pkgs.ssh-to-age
         ];
+      };
+      packages = {
+        inherit (pkgs) fahrplandatengarten;
       };
     }
   );
