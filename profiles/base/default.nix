@@ -8,7 +8,7 @@
     inputs.sops-nix.nixosModules.sops
     inputs.leona-nixfiles.nixosModules.telegraf
     ../../users/root
-    ../../users/n0emis
+    ../../users/ember
     ../../users/leona
     ./nginx.nix
   ];

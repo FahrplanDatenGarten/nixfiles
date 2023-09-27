@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
-  users.users.n0emis = {
+  users.users.ember = {
     isNormalUser = true;
     hashedPassword =
       "$6$ZvdWexF9y28IrjyW$lxz27/eFjDZWUPY7Lox0aDXO0.TgMBzygZqNSp1HU7itaMI0KbtAOX2H3uZ9hlEo21z.K.JEE.V/b.HpmN.4y1";
