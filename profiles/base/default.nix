@@ -24,19 +24,27 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.trusted-users = [ "root" "@wheel" ];
     gc = {
       automatic = lib.mkDefault true;
       options = lib.mkDefault "--delete-older-than 7d";
+    };
+    settings = {
+      trusted-users = [ "root" "@wheel" ];
+      substituters = [
+        "https://nix-cache.ember.li"
+      ];
+      trusted-public-keys = [
+        "nix-cache.ember.li-1:smMe5Nc62Ziy2WEC9SKqm0DBH7lCJPmfsDf9c97+9x0="
+      ];
     };
   };
 
   services.journald.extraConfig = "SystemMaxUse=256M";
 
   services.openssh.enable = true;
-  services.openssh.passwordAuthentication = false;
-  services.openssh.kbdInteractiveAuthentication = false;
-  services.openssh.permitRootLogin = lib.mkDefault "no";
+  services.openssh.settings.PasswordAuthentication = false;
+  services.openssh.settings.KbdInteractiveAuthentication = false;
+  services.openssh.settings.PermitRootLogin = lib.mkDefault "no";
 
   security.sudo.wheelNeedsPassword = lib.mkDefault false;
 

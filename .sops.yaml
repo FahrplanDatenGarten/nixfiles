@@ -2,6 +2,7 @@ keys:
   - &leona EB5CEED62922C6050F9FC85BD5B08ADFC75E3605
   - &ember 6E10217E3187069E057DF5ABE0262A773B824745
   - &martian age1jvn978zuhm52f62dqluvt9nms73tppnevjnza5v8qugjuugqzpyqhuyswa
+  - &franzbroetchen age18va0t24arar7tdqlevq4awcg7hgmzgy54eu7n4hcse3vpt55gvvs9h6r0e
 creation_rules:
   # hosts
   - path_regex: secrets/hosts/martian.yaml
@@ -11,6 +12,13 @@ creation_rules:
           - *ember
         age:
           - *martian
+  - path_regex: secrets/hosts/franzbroetchen.yaml
+    key_groups:
+      - pgp:
+          - *leona
+          - *ember
+        age:
+          - *franzbroetchen
   # services
   - path_regex: secrets/services/dns-knot.yaml
     key_groups:
@@ -26,5 +34,4 @@ creation_rules:
           - *ember
         age:
           - *martian
-
-
+          - *franzbroetchen

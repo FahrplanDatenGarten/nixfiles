@@ -78,7 +78,7 @@ rec {
           interfaces = {
             "fdg-int" = {
               ips = [ "${hosts.franzbroetchen.meta.intIpv6}/128" ];
-              publicKey = "5eE89MEKz0WegJ4umHe5nOABTqpqP0Zo4QHeS7r7e0M=";
+              publicKey = "uCA6JMXnDKN+7Bk/v8n74/q1p0Dd9V6RWqtPMttMqWo=";
               routed = [ "${hosts.franzbroetchen.meta.intIpv6}/128" ];
               hostname = "franzbroetchen.unix-ag.uni-kl.de";
             };
