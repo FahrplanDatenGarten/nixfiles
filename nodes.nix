@@ -10,5 +10,6 @@
   nodes = {
     martian.configuration = import ./hosts/martian;
     franzbroetchen.configuration = import ./hosts/franzbroetchen;
+    merkur.configuration = import ./hosts/merkur;
   };
 }
