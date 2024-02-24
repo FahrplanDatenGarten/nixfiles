@@ -128,6 +128,9 @@ in {
       locations."/static/" = {
         root = "/var/lib/fdg";
       };
+      locations."/api" = {
+        return = ''200 'OK' '';
+      };
     };
   };
 }
