@@ -13,6 +13,7 @@ let
 in {
   config = mkIf cfg.web.enable {
     systemd.services.fdg-web = {
+      path = with pkgs; [ pdftk ];
       environment.PYTHONPATH = pythonpath;
       preStart = ''
         ${pkgs.gettext}/bin/envsubst < ${configFile} > ${configPath}
