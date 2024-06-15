@@ -4,7 +4,7 @@
     SOA = ((ttl 3600) {
       nameServer = "ns1.fahrplandatengarten.de.";
       adminEmail = "noc@fahrplandatengarten.de";
-      serial = 2023083101; # format: YYYYMMDDHH##
+      serial = 2024061501; # format: YYYYMMDDHH##
       refresh = 3600;
       expire = 604800;
       minimum = 300;
@@ -46,6 +46,7 @@
 
       www.CNAME = [ "martian.infra.fahrplandatengarten.de." ];
       "mars.het.nue.de".CNAME = [ "martian.infra.fahrplandatengarten.de." ];
+      pyhafas.CNAME = [ "martian.infra.fahrplandatengarten.de." ];
     } // hosthelper.services.dns-int.g_dns_records;
   };
 }
