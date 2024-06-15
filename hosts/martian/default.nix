@@ -42,7 +42,7 @@ in {
           "2a01:4f8:c012:5ab9::1/64"
         ];
         routes = [
-          { routeConfig = { Destination = "::/0"; Gateway = "fe80::1"; GatewayOnLink = true; }; }
+          { Destination = "::/0"; Gateway = "fe80::1"; GatewayOnLink = true; }
         ];
       };
     } // hosthelper.groups.wireguard.g_systemd_network_networkconfig;

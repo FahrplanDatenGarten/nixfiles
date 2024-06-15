@@ -68,7 +68,7 @@ in {
       ensureDatabases = [ "fdg" ];
       ensureUsers = [{
         name = "fdg";
-        ensurePermissions."DATABASE fdg" = "ALL PRIVILEGES";
+        ensureDBOwnership = true;
       }];
       enableTCPIP = true;
       authentication = ''

@@ -44,7 +44,7 @@
     };
     overlays = {
       colmena = inputs.colmena.overlay;
-      fdg = inputs.fdg-app.overlay;
+      fdg = inputs.fdg-app.overlays.default;
     };
     inherit (inputs.self.suxin.config) nixosConfigurations colmenaHive;
     hydraJobs = {

@@ -67,7 +67,7 @@
     bottom
     bind.dnsutils # for dig
     file
-    exa
+    eza
     git
     htop
     mtr

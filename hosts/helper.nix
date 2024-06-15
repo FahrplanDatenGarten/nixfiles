@@ -14,28 +14,22 @@ rec {
               hostname = "martian.infra.fahrplandatengarten.de";
               extraWireguardPeers = [
                 { # leona, turingmachine
-                  wireguardPeerConfig = {
-                    AllowedIPs = [
-                      "fd59:974e:6ee8:1000::1/64"
-                    ];
-                    PublicKey = "XXhmTtGgJskiU03n0VJtBB57d9deND1CND8Pbq8WLHc=";
-                  };
+                  AllowedIPs = [
+                    "fd59:974e:6ee8:1000::1/64"
+                  ];
+                  PublicKey = "XXhmTtGgJskiU03n0VJtBB57d9deND1CND8Pbq8WLHc=";
                 }
                 { # leona, enari
-                  wireguardPeerConfig = {
-                    AllowedIPs = [
-                      "fd59:974e:6ee8:1001::1/64"
-                    ];
-                    PublicKey = "Za6Mq5kTu97ZXfvqQ1zLzxmmNSrtmjD1xSRSzfvH0i0=";
-                  };
+                  AllowedIPs = [
+                    "fd59:974e:6ee8:1001::1/64"
+                  ];
+                  PublicKey = "Za6Mq5kTu97ZXfvqQ1zLzxmmNSrtmjD1xSRSzfvH0i0=";
                 }
                 { # ember, laptop
-                  wireguardPeerConfig = {
-                    AllowedIPs = [
-                      "fd59:974e:6ee8:1010::1/64"
-                    ];
-                    PublicKey = "jX09UX1l0nmc86krm3s5Ag/ytjcMKoG215aN+a6lF2Y=";
-                  };
+                  AllowedIPs = [
+                    "fd59:974e:6ee8:1010::1/64"
+                  ];
+                  PublicKey = "jX09UX1l0nmc86krm3s5Ag/ytjcMKoG215aN+a6lF2Y=";
                 }
               ];
             };
@@ -93,7 +87,7 @@ rec {
         fdg-int = {
           port = 40000;
           routes = [
-            { routeConfig.Destination = "fd59:974e:6ee8::/48"; }
+            { Destination = "fd59:974e:6ee8::/48"; }
           ];
         };
       };
@@ -103,13 +97,11 @@ rec {
             ifaceConfig = hostconf.services.wireguard.interfaces.${ifName};
             groupConfig = groups.wireguard.interfaces.${ifName};
           in {
-            wireguardPeerConfig = {
-              AllowedIPs = [ ifaceConfig.routed ];
-              Endpoint = mkIf (ifaceConfig ? hostname)
-                "${ifaceConfig.hostname}:${toString groupConfig.port}";
-              PublicKey = ifaceConfig.publicKey;
-              PersistentKeepalive = 21;
-            };
+            AllowedIPs = [ ifaceConfig.routed ];
+            Endpoint = mkIf (ifaceConfig ? hostname)
+              "${ifaceConfig.hostname}:${toString groupConfig.port}";
+            PublicKey = ifaceConfig.publicKey;
+            PersistentKeepalive = 21;
           }) (lib.filterAttrs (hostname: hostconf:
             hostconf.services.wireguard.interfaces.${ifName} ? hostname
             || hosts.${currentHost}.services.wireguard.interfaces.${ifName}
