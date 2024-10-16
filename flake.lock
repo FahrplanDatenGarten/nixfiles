@@ -224,11 +224,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1718453983,
-        "narHash": "sha256-6xa+Iqo/ZGmZ8VGiwlk1brW6oSaUBubdhUHG1n0gep8=",
+        "lastModified": 1729115410,
+        "narHash": "sha256-bfQPTRFEuKUo0dexwHZTx5ydO1iRLa7f36fR+ArKqYc=",
         "owner": "FahrplanDatenGarten",
         "repo": "fahrplandatengarten",
-        "rev": "7ab43956590d3a828c4aa093f2a1f3c801e1c64b",
+        "rev": "f13e50c4e31e667550889b289250dadb2ae44ed3",
         "type": "github"
       },
       "original": {

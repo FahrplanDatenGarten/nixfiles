@@ -23,7 +23,6 @@
     leona-nixfiles = {
       url = "git+https://cyberchaos.dev/leona/nixfiles";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-turingmachine.follows = "nixpkgs";
     };
     dns = {
       url = "github:kirelagin/dns.nix";
@@ -45,6 +44,7 @@
     overlays = {
       colmena = inputs.colmena.overlay;
       fdg = inputs.fdg-app.overlays.default;
+      leona = inputs.leona-nixfiles.overlays.default;
     };
     inherit (inputs.self.suxin.config) nixosConfigurations colmenaHive;
     hydraJobs = {
