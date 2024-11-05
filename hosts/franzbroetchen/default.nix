@@ -41,5 +41,7 @@ in {
     } // hosthelper.groups.wireguard.g_systemd_network_networkconfig;
   };
 
+  fdg.app.worker.numWorkers = 3;
+
   system.stateVersion = "23.11";
 }
