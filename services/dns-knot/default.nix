@@ -19,14 +19,14 @@ in {
         listen: 2a01:4f8:c012:5ab9::1@53
       remote:
         - id: leona_ns2
-          address: 2001:470:1f0b:1112::1
+          address: 2a02:247a:22e:fd00:1::1
           key: fdg_leona_secondary
         - id: leona_ns3
           address: 2a01:4f8:c010:1098::1
           key: fdg_leona_secondary
       acl:
         - id: leona_secondary_transfer
-          address: [2001:470:1f0a:1111::2/64, 2001:470:1f0b:1112::1/128, 2a01:4f8:c010:1098::1/128]
+          address: [2a02:247a:22e:fd00:1::1, 2a01:4f8:c010:1098::1/128]
           key: fdg_leona_secondary
           action: transfer
         - id: internal

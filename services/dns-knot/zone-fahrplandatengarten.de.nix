@@ -4,7 +4,7 @@
     SOA = ((ttl 3600) {
       nameServer = "ns1.fahrplandatengarten.de.";
       adminEmail = "noc@fahrplandatengarten.de";
-      serial = 2024061501; # format: YYYYMMDDHH##
+      serial = 2024071501; # format: YYYYMMDDHH##
       refresh = 3600;
       expire = 604800;
       minimum = 300;
