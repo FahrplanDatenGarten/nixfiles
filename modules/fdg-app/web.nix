@@ -65,6 +65,7 @@ in {
     networking.firewall.interfaces."wg-fdg-int".allowedTCPPorts = [ 5432 6379 ];
     services.postgresql = {
       enable = true;
+      package = pkgs.postgresql_15;
       ensureDatabases = [ "fdg" ];
       ensureUsers = [{
         name = "fdg";
