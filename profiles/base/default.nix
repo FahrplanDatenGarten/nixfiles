@@ -55,12 +55,17 @@
 
   networking.useNetworkd = true;
   networking.nftables.enable = true;
+  networking.firewall.logRefusedConnections = false;
   networking.useDHCP = false;
   services.resolved.dnssec = "false"; # broken :(
   services.resolved.extraConfig = ''
     FallbackDNS=
     Cache=no-negative
   '';
+
+  boot.kernel.sysctl = {
+    "kernel.printk" = 8;
+  };
 
   environment.systemPackages = with pkgs; [
     bat
